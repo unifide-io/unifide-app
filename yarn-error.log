@@ -1,0 +1,123 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn add --flat @Polymerpaper-behaviors@3.0.0-pre.1
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  1.1.0
+
+Node version: 
+  8.5.0
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "unifide-social",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "dependencies": {
+      "@polymer/polymer": "^3.0.0-pre.1",
+      "@PolymerElements/paper-badge": "3.0.0-pre.1",
+      "@Polymer/paper-behaviors": "3.0.0-pre.1",
+      "@PolymerElements/paper-button": "3.0.0-pre.1",
+      "@PolymerElements/paper-card": "3.0.0-pre.1",
+      "@PolymerElements/paper-checkbox": "3.0.0-pre.1",
+      "@PolymerElements/paper-dialog-behavior": "3.0.0-pre.1",
+      "@PolymerElements/paper-dialog-scrollable": "3.0.0-pre.1",
+      "@Polymer/paper-dialog": "3.0.0-pre.1",
+      "@PolymerElements/paper-drawer-panel": "3.0.0-pre.1",
+      "@PolymerElements/paper-dropdown-menu": "3.0.0-pre.1",
+      "@PolymerElements/paper-fab": "3.0.0-pre.1",
+      "@PolymerElements/paper-header-panel": "3.0.0-pre.1",
+      "@PolymerElements/paper-icon-button": "3.0.0-pre.1",
+      "@PolymerElements/paper-input": "3.0.0-pre.1",
+      "@PolymerElements/paper-item": "3.0.0-pre.1",
+      "@PolymerElements/paper-listbox": "3.0.0-pre.1",
+      "@PolymerElements/paper-material": "3.0.0-pre.1",
+      "@PolymerElements/paper-menu-button": "3.0.0-pre.1",
+      "@PolymerElements/paper-menu": "3.0.0-pre.1",
+      "@PolymerElements/paper-progress": "3.0.0-pre.1",
+      "@PolymerElements/paper-radio-button": "3.0.0-pre.1",
+      "@PolymerElements/paper-radio-group": "3.0.0-pre.1",
+      "@PolymerElements/paper-ripple": "3.0.0-pre.1",
+      "@PolymerElements/paper-scroll-header-panel": "3.0.0-pre.1",
+      "@PolymerElements/paper-slider": "3.0.0-pre.1",
+      "@PolymerElements/paper-spinner": "3.0.0-pre.1",
+      "@PolymerElements/paper-styles": "3.0.0-pre.1",
+      "@PolymerElements/paper-tabs": "3.0.0-pre.1",
+      "@PolymerElements/paper-toast": "3.0.0-pre.1",
+      "@PolymerElements/paper-toggle-button": "3.0.0-pre.1",
+      "@PolymerElements/paper-toolbar": "3.0.0-pre.1",
+      "@PolymerElements/iron-a11y-announcer": "3.0.0-pre.1",
+      "@PolymerElements/iron-a11y-keys": "3.0.0-pre.1",
+      "@PolymerElements/iron-a11y-keys-behavior": "3.0.0-pre.1",
+      "@PolymerElements/iron-ajax": "3.0.0-pre.1",
+      "@PolymerElements/iron-autogrow-textarea": "3.0.0-pre.1",
+      "@PolymerElements/iron-behaviors": "3.0.0-pre.1",
+      "@PolymerElements/iron-checked-element-behavior": "3.0.0-pre.1",
+      "@PolymerElements/iron-collapse": "3.0.0-pre.1",
+      "@PolymerElements/iron-component-page": "3.0.0-pre.1",
+      "@PolymerElements/iron-demo-helpers": "3.0.0-pre.1",
+      "@PolymerElements/iron-doc-viewer": "3.0.0-pre.1",
+      "@PolymerElements/iron-dropdown": "3.0.0-pre.1",
+      "@PolymerElements/iron-fit-behavior": "3.0.0-pre.1",
+      "@PolymerElements/iron-flex-layout": "3.0.0-pre.1",
+      "@PolymerElements/iron-form": "3.0.0-pre.1",
+      "@PolymerElements/iron-form-element-behavior": "3.0.0-pre.1",
+      "@PolymerElements/iron-icon": "3.0.0-pre.1",
+      "@PolymerElements/iron-icons": "3.0.0-pre.1",
+      "@PolymerElements/iron-iconset": "3.0.0-pre.1",
+      "@PolymerElements/iron-iconset-svg": "3.0.0-pre.1",
+      "@PolymerElements/iron-image": "3.0.0-pre.1",
+      "@PolymerElements/iron-input": "3.0.0-pre.1",
+      "@PolymerElements/iron-jsonp-library": "3.0.0-pre.1",
+      "@PolymerElements/iron-list": "3.0.0-pre.1",
+      "@PolymerElements/iron-label": "3.0.0-pre.1",
+      "@PolymerElements/iron-localstorage": "3.0.0-pre.1",
+      "@PolymerElements/iron-location": "3.0.0-pre.1",
+      "@PolymerElements/iron-media-query": "3.0.0-pre.1",
+      "@PolymerElements/iron-menu-behavior": "3.0.0-pre.1",
+      "@PolymerElements/iron-meta": "3.0.0-pre.1",
+      "@PolymerElements/iron-overlay-behavior": "3.0.0-pre.1",
+      "@PolymerElements/iron-pages": "3.0.0-pre.1",
+      "@PolymerElements/iron-range-behavior": "3.0.0-pre.1",
+      "@PolymerElements/iron-resizable-behavior": "3.0.0-pre.1",
+      "@PolymerElements/iron-scroll-target-behavior": "3.0.0-pre.1",
+      "@PolymerElements/iron-scroll-threshold": "3.0.0-pre.1",
+      "@PolymerElements/iron-selector": "3.0.0-pre.1",
+      "@PolymerElements/iron-signals": "3.0.0-pre.1",
+      "@PolymerElements/iron-swipeable-container": "3.0.0-pre.1",
+      "@PolymerElements/iron-test-helpers": "3.0.0-pre.1",
+      "@PolymerElements/iron-validatable-behavior": "3.0.0-pre.1",
+      "@PolymerElements/iron-validator-behavior": "3.0.0-pre.1"
+    },
+    "devDependencies": {},
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "description": ""
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@PolymerElements%2fpaper-badge: Not found
+      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:61779:18)
+      at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:121917:22)
+      at emitTwo (events.js:125:13)
+      at Request.emit (events.js:213:7)
+      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:122900:10)
+      at emitOne (events.js:115:13)
+      at Request.emit (events.js:210:7)
+      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:122820:12)
+      at Object.onceWrapper (events.js:314:30)
+      at emitNone (events.js:110:20)
