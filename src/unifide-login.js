@@ -2,6 +2,7 @@ import '/node_modules/@polymer/polymer/polymer.js';
 import { Polymer } from '/node_modules/@polymer/polymer/lib/legacy/polymer-fn.js';
 import '/node_modules/@polymer/iron-icons/iron-icons.js';
 import '/node_modules/@polymer/paper-button/paper-button.js';
+import '/node_modules/@polymer/paper-icon-button/paper-icon-button.js';
 import '/node_modules/@polymer/paper-card/paper-card.js';
 import '/node_modules/@polymer/paper-input/paper-input.js';
 import '/node_modules/@polymer/paper-styles/paper-styles.js';
@@ -163,14 +164,10 @@ Polymer({
           <iron-icon icon="https" slot="prefix"></iron-icon>
         </paper-input>
         <div>
-        <paper-button raised on-click="_login">login</paper-button>
-        <paper-button raised on-click="_register">register</paper-button>
-        <paper-button raised on-click="_logout">logout</paper-button>
-        <paper-button raised on-click="_googleSingleSignOn">google</paper-button>
-        <paper-button raised on-click="_facebookSingleSignOn">facebook</paper-button>
-        <paper-button raised on-click="_twitterSingleSignOn">twitter</paper-button>
-        <paper-button raised on-click="_githubSingleSignOn">github</paper-button>
-        <paper-button raised on-click="setIsAnonymous">Is Anonymous?</paper-button>
+        <paper-button raised on-click="_login"><iron-icon icon="icons:lock-open"></iron-icon>login</paper-button>
+        <paper-button raised on-click="_register"><iron-icon icon="icons:create"></iron-icon>register</paper-button>
+        <paper-button raised on-click="_googleSingleSignOn"><iron-icon icon="landing:twitter"></iron-icon>social</paper-button>
+
         </div>
 
       </paper-card

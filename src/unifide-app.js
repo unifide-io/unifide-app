@@ -43,6 +43,7 @@ Polymer({
     '_routePageChanged(routeData.page)',
     '_checkUserStatus()',
     '_routeIfLoggedIn()',
+    '_updateIsAnonymous()',
     '_forceLogin()'
   ],
 
@@ -76,6 +77,13 @@ Polymer({
   _notifyIsAnonymous: function(){
     console.log(this.isAnonymous);
   },
+  _updateIsAnonymous: function(){
+    if(firebase.auth().R == null){
+      unifideApp.isAnonymous = true;
+    }else{
+      unifideApp.isAnonymous = false;
+    };
+  },
 
   _forceLogin: function() {
     if(firebase.auth().R == null){
@@ -86,17 +94,17 @@ Polymer({
 
     if(unifideApp.isAnonymous == true){
 
-      console.log("you're not logged in!");
+      console.log("You're not logged in!");
       if( unifideApp.pageData.page == " "){
 
-        console.log("you're at landing");
+        console.log("You're at landing");
 
       }if(unifideApp.pageData.page == "login") {
 
-        console.log("you're at login");
+        console.log("You're at login");
 
       }else{
-        console.log("you're elsewhere!");
+        console.log("You're in elsewhere!");
         window.location = "/login";
       }
 
