@@ -36,35 +36,34 @@ Polymer({
   _login: function(){
     var email = this.userEmail;
     var password = this.userPass;
-    var userStatus = firebase.auth().currentUser;
 
-    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+    firebase.auth().signInWithEmailAndPassword(email, password).then(function(){
+        unifideApp.isAnonymous = false;
+        window.location = "/dashboard";
+      }).catch(function(error) {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
       // ...
-    })
-    // if (firebase.auth().currentUser == null){
-    //   console.log("You're logged in!");
-    //   window.location = '/dashboard';
-    // }
-    ;
+    });
+
   },
 
   _logout: function(){
 
     firebase.auth().signOut().then(function() {
       // Sign-out successful.
-
+      unifideApp.isAnonymous = true;
     }).catch(function(error) {
       // An error happened.
-    })
-    if (firebase.auth().currentUser == null){
-      console.log("You're logged out!");
-      window.location = '/';
-    };
+    });
+
 
   },
+  setIsAnonymous: function(){
+    console.log(unifideApp.isAnonymous);
+  },
+
 
   _register: function(){
     var email = this.userEmail;
@@ -129,7 +128,7 @@ Polymer({
         display: block;
         margin: 0;
         font-family: 'Inconsolata';
-        background-color: #616161;
+        background-color: ;
       }
       h2{
         margin: 0;
@@ -171,6 +170,7 @@ Polymer({
         <paper-button raised on-click="_facebookSingleSignOn">facebook</paper-button>
         <paper-button raised on-click="_twitterSingleSignOn">twitter</paper-button>
         <paper-button raised on-click="_githubSingleSignOn">github</paper-button>
+        <paper-button raised on-click="setIsAnonymous">Is Anonymous?</paper-button>
         </div>
 
       </paper-card

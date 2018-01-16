@@ -15,8 +15,13 @@ Polymer({
   _template: `
   <style>
     :host{
+      display: block;
       margin: 0;
       font-family: 'Nunito';
+      background-image: url('/img/unifide-landing-tunnel.gif');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
     }
 
   </style>

@@ -1,8 +1,6 @@
 # Unifide App #
 
 ## Setup ##
-___
-
 ### Initialize project and install dependencies ###
 ```
 npm init

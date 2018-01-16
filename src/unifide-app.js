@@ -19,18 +19,20 @@ import '/node_modules/@polymer/platinum-sw/platinum-sw-elements.js';
 
 import '/src/unifide-landing.js';
 import '/src/unifide-login.js';
+import '/src/unifide-404.js';
 
 Polymer({
   is: 'unifide-app',
 
   properties:{
 
-    signedIn: {
+    isAnonymous: {
       type: Boolean,
-      value: false
+      reflectToAttribute: true,
+      observer: '_notifyIsAnonymous'
     },
     route: {
-      type: String
+      type: String,
     },
     prop: {
       type: String,
@@ -39,7 +41,9 @@ Polymer({
   },
   observers: [
     '_routePageChanged(routeData.page)',
-    '_checkUserStatus()'
+    '_checkUserStatus()',
+    '_routeIfLoggedIn()',
+    '_forceLogin()'
   ],
 
 
@@ -69,12 +73,37 @@ Polymer({
     this.page = 'view404';
   },
 
-  _checkStatus: function(){
-    firebase.auth().onAuthStateChanged(user => {
-      if(user) {
-        window.location = '/'; //After successful login, user will be redirected to home.html
+  _notifyIsAnonymous: function(){
+    console.log(this.isAnonymous);
+  },
+
+  _forceLogin: function() {
+    if(firebase.auth().R == null){
+      unifideApp.isAnonymous = true;
+    }else{
+      unifideApp.isAnonymous = false;
+    };
+
+    if(unifideApp.isAnonymous == true){
+
+      console.log("you're not logged in!");
+      if( unifideApp.pageData.page == " "){
+
+        console.log("you're at landing");
+
+      }if(unifideApp.pageData.page == "login") {
+
+        console.log("you're at login");
+
+      }else{
+        console.log("you're elsewhere!");
+        window.location = "/login";
       }
-    });
+
+    }else{
+      console.log("you're logged in!");
+    }
+
   },
 
   _template: `
@@ -84,10 +113,9 @@ Polymer({
       display: block;
       margin: 0;
       font-family: 'Nunito';
-      background-image: url('/img/unifide-landing-tunnel.gif');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
+      height:100vh;
+      width:100vw;
+
     }
     app-header {
       display: block;
@@ -100,6 +128,11 @@ Polymer({
     }
     iron-pages{
       padding-top: 64px;
+    }
+    .centered-container {
+      margin-top: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
     }
   </style>
   <platinum-sw-register
@@ -136,8 +169,8 @@ Polymer({
 
         <unifide-landing data-page=""></unifide-landing>
         <unifide-login id="unifide-login" data-page="login"></unifide-login>
-        <unifide-dashboard data-page="dashboard"></unifide-social>
-        <unifide-404 data-page="view404"></my-view404>
+        <unifide-dashboard data-page="dashboard"></unifide-dashboard>
+        <unifide-404 data-page="view404"></unifide-404>
       </iron-pages>
     </app-header-layout>
   </app-drawer-layout>
