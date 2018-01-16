@@ -95,17 +95,21 @@ Polymer({
     if(unifideApp.isAnonymous == true){
 
       console.log("You're not logged in!");
-      if( unifideApp.pageData.page == " "){
-
-        console.log("You're at landing");
-
-      }if(unifideApp.pageData.page == "login") {
+      if( unifideApp.pageData.page == "login"){
 
         console.log("You're at login");
 
+
       }else{
-        console.log("You're in elsewhere!");
-        window.location = "/login";
+        if(unifideApp.pageData.page == "") {
+
+          console.log("You're at landing");
+
+        }else{
+
+          console.log("You're in elsewhere!");
+          window.location = "/login";
+        }
       }
 
     }else{
