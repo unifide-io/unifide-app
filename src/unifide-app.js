@@ -17,10 +17,9 @@ import '/node_modules/@polymer/paper-icon-button/paper-icon-button.js';
 
 import '/node_modules/@polymer/platinum-sw/platinum-sw-elements.js';
 
-import '/src/unifide-splash.js';
-import '/src/unifide-404.js';
+import '/src/unifide-landing.js';
 import '/src/unifide-login.js';
-import '/src/unifide-dashboard.js';
+import '/src/unifide-404.js';
 
 Polymer({
   is: 'unifide-app',
@@ -42,6 +41,8 @@ Polymer({
   },
   observers: [
     '_routePageChanged(routeData.page)',
+    '_checkUserStatus()',
+    '_routeIfLoggedIn()',
     '_updateIsAnonymous()',
     '_forceLogin()'
   ],
@@ -51,7 +52,7 @@ Polymer({
   _routePageChanged:function (page) {
     // If no page was found in the route data, page will be an empty string.
     // Default to 'view1' in that case.
-    this.page = page || 'login';
+    this.page = page || 'landing';
 
     // Close a non-persistent drawer when the page & route are changed.
     if (!this.$.drawer.persistent) {
@@ -75,28 +76,50 @@ Polymer({
 
   _notifyIsAnonymous: function(){
     console.log(this.isAnonymous);
-
   },
   _updateIsAnonymous: function(){
-    if(firebase.auth().R === null){
-      this.isAnonymous = true;
+    if(firebase.auth().R == null){
+      unifideApp.isAnonymous = true;
     }else{
-      this.isAnonymous = false;
+      unifideApp.isAnonymous = false;
     };
   },
 
   _forceLogin: function() {
-    if (this.isAnonymous === true && this.pageData.page !== 'login'){
-      console.log('need to login to access this app.');
-      window.location = 'login';
-    }
-  },
+    if(firebase.auth().R == null){
+      unifideApp.isAnonymous = true;
+    }else{
+      unifideApp.isAnonymous = false;
+    };
 
-  signOut: function() {
-    firebase.auth().signOut();
+    if(unifideApp.isAnonymous == true){
+
+      console.log("You're not logged in!");
+      if( unifideApp.pageData.page == "login"){
+
+        console.log("You're at login");
+
+
+      }else{
+        if(unifideApp.pageData.page == "") {
+
+          console.log("You're at landing");
+
+        }else{
+
+          console.log("You're in elsewhere!");
+          window.location = "/login";
+        }
+      }
+
+    }else{
+      console.log("you're logged in!");
+    }
+
   },
 
   _template: `
+
   <style>
     :host{
       display: block;
@@ -104,6 +127,7 @@ Polymer({
       font-family: 'Nunito';
       height:100vh;
       width:100vw;
+
     }
     app-header {
       display: block;
@@ -133,36 +157,36 @@ Polymer({
         default-cache-strategy="networkFirst">
     </platinum-sw-cache>
   </platinum-sw-register>
+
   <app-location route="{{route}}"></app-location>
     <app-route  route="{{route}}"
                 pattern="/:page"
                 data="{{pageData}}"
                 active="{{pageActive}}"
                 tail="{{subroute}}"></app-route>
+
   <app-drawer-layout>
-
     <app-header-layout>
-      <app-header fixed>
+      <app-header reveals>
         <app-toolbar>
-          <iron-icon class="menu-button" icon="menu" on-tap="_toggleMenu"></iron-icon>
-          <div class="main-title" main-title>[[pageData.page]]</div>
-          <paper-icon-button on-tap="signOut()" icon="power-settings-new">
-          <a href="/login"><paper-icon-button icon="power-settings-new"></paper-icon-button></a>
-        </app-toolbar
+          <div main-title>Unifide</div>
+          <a href="/"><paper-icon-button icon="power-settings-new"></paper-icon-button></a>
+        </app-toolbar>
       </app-header>
+      <iron-pages
+            selected="{{pageData.page}}"
+            attr-for-selected="data-page"
+            fallback-selection="view404"
+            role="main">
+
+        <unifide-landing data-page=""></unifide-landing>
+        <unifide-login id="unifide-login" data-page="login"></unifide-login>
+        <unifide-dashboard data-page="dashboard"></unifide-dashboard>
+        <unifide-404 data-page="view404"></unifide-404>
+      </iron-pages>
     </app-header-layout>
-
-    <iron-pages
-          selected="{{pageData.page}}"
-          attr-for-selected="data-page"
-          fallback-selection="view404"
-          role="main">
-      <unifide-login data-page="login"></unifide-login>
-      <unifide-dashboard data-page="dashboard"></unifide-dashboard>
-      <unifide-404 data-page="view404"></unifide-404>
-    </iron-pages>
-
   </app-drawer-layout>
+
   `
 
 
