@@ -34,6 +34,7 @@ Polymer({
       window.location = destinationOut;
     };
   },
+
   _login: function(){
     var email = this.userEmail;
     var password = this.userPass;
@@ -77,9 +78,12 @@ Polymer({
       // ...
     })
     if (firebase.auth().currentUser == null){
+
       console.log("You're logged in!");
       window.location = '/dashboard';
+
     };
+
   },
   _googleSingleSignOn: function(){
     var redirect = this.redirectAfterLogin();

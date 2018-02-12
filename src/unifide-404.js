@@ -6,6 +6,20 @@ Polymer({
   properties:{
 
   },
+
+  listeners: {
+    'goHome' : '_goHome()',
+    'refreshPage' : '_refreshPage()'
+  },
+
+  goHome: function(){
+    window.location = 'dashboard';
+  },
+
+  refreshPage: function(){
+    location.reload();
+  },
+
   _template: `
   <style>
     :host{
@@ -42,15 +56,14 @@ Polymer({
     <paper-card heading="404 File Not Found" alt="404" elevated="1" width="100%">
       <div class="card-content">
         <p>You're still connected to Unifide but the page you're looking for could not be found.</p>
+        <p>We don't want to see yesterday tomorrow, but tomorrow today.</p>
       </div>
       <div class="card-actions">
-        <paper-button>Home</paper-button>
-        <paper-button>Refresh</paper-button>
+        <paper-button on-tap="goHome">Home</paper-button>
+        <paper-button on-tap="refreshPage">Refresh</paper-button>
       </div>
     </paper-card>
   </div>
-
-\
 
   `,
 
