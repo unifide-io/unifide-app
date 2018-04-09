@@ -1,5 +1,3 @@
-/node_modules/**/*
-/build/**/*
-/img/**/*
-config.json
-
+node_modules
+dist
+config.js

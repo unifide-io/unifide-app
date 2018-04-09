@@ -1,0 +1,77 @@
+<style>
+
+  :host{
+    display: block;
+    margin: 0;
+    font-family: 'Nunito';
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height:100vh;
+    width:100%;
+    background: #24292F;
+  }
+
+  app-header {
+    display: block;
+    @apply --layout-fixed-top;
+    color: #fff;
+    background-color:rgba(0,0,0,0);
+    --app-header-shadow: {
+      box-shadow: inset 0px 5px 2px -3px rgba(0, 0, 0, 0.2);
+    }
+    z-index: 10;
+  }
+
+  app-drawer{
+    margin-top: 64px;
+    color:#ffffff;
+
+    --app-drawer-content-container: {
+          background-color: rgba(0,0,0,0);
+    }
+    --app-drawer-scrim-background: rgba(0, 0, 0, 0);
+    }
+
+
+  a {
+    color: #fff;
+  }
+  iron-icon{
+    margin-right:16px
+  }
+
+  iron-pages{
+    padding-top: 64px;
+  }
+
+  app-header {
+    --app-header-shadow: {
+      box-shadow: inset 0px 5px 2px -3px rgba(0, 0, 0, 0.2);
+    };
+  }
+
+
+
+</style>
+<app-drawer-layout>
+  <app-header-layout elevation="1">
+    <app-header condenses reveals effects="waterfall">
+      <app-toolbar>
+        <iron-icon class="menu-button" icon="menu" on-tap="toggleMenu"></iron-icon>
+        <div main-title>Unifide</div>
+      </app-toolbar>
+    </app-header>
+    <app-drawer opened>
+      <paper-listbox>
+        <paper-item><iron-icon icon="dashboard"></iron-icon>Dashboard</paper-item>
+        <paper-item><iron-icon icon="apps"></iron-icon>Applications</paper-item>
+        <paper-item><iron-icon icon="hardware:computer"></iron-icon>Computers</paper-item>
+        <paper-item><iron-icon icon="social:people"></iron-icon>Social</paper-item>
+        <paper-item><iron-icon icon="av:radio"></iron-icon>Audio</paper-item>
+        <paper-item><iron-icon icon="theaters"></iron-icon>Video</paper-item>
+        <paper-item></paper-item>
+      </paper-listbox>
+    </app-drawer>
+
+</app-drawer-layout>
